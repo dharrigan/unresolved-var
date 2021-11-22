@@ -1,0 +1,40 @@
+{:skip-comments true
+ :linters {:clojure-lsp/unused-public-var {:exclude #{dev scripts.build}}
+           :refer-all {:exclude [clojure.repl]}
+           :single-key-in true
+           :unsorted-required-namespaces {:level :warning}
+           :unresolved-symbol {:exclude [(expectations.clojure.test/defexpect)
+                                         (honeysql.helpers/defhelper)
+                                         (manifold.deferred/loop)
+                                         (compojure.api.sweet/ANY)
+                                         (compojure.api.sweet/DELETE)
+                                         (compojure.api.sweet/GET)
+                                         (compojure.api.sweet/HEAD)
+                                         (compojure.api.sweet/OPTIONS)
+                                         (compojure.api.sweet/PATCH)
+                                         (compojure.api.sweet/POST)
+                                         (compojure.api.sweet/PUT)
+                                         (compojure.api.sweet/api)
+                                         (compojure.api.sweet/context)
+                                         (compojure.api.sweet/defroutes)
+                                         (compojure.api.sweet/middleware)
+                                         (compojure.api.sweet/undocumented)]}
+           :unresolved-var {:report-duplicates true}
+           :unused-binding {:exclude-destructured-as true}
+           :unused-namespace {:exclude [config.core]}
+           :unused-referred-var {:exclude {config.core [env]
+                                           clojure.test [is deftest testing]
+                                           expectations.clojure.test [defexpect]
+                                           juxt.clip.repl [stop system]}}
+           :lint-as {clojure.core.async/go-loop clojure.core/loop
+                     clojure.test.check.generators/let clojure.core/let
+                     com.rpl.specter/defcollector clojure.core/defn
+                     com.rpl.specter/defdynamicnav clojure.core/defn
+                     com.rpl.specter/defmacroalias clojure.core/def
+                     com.rpl.specter/defnav clojure.core/defn
+                     com.rpl.specter/defrichnav clojure.core/defn
+                     compojure.api.sweet/defroutes clojure.core/def
+                     schema.core/defschema clojure.core/def
+                     compojure.core/defroutes clojure.core/def
+                     compojure.core/let-routes clojure.core/def
+                     expectations.clojure.test/defexpect clojure.test/deftest}}}
